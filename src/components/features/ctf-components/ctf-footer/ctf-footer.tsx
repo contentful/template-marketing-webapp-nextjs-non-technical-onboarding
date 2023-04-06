@@ -8,10 +8,10 @@ import { useTranslation } from 'next-i18next';
 
 import { FooterFieldsFragment } from './__generated/ctf-footer.generated';
 
-import {
-  getLinkDisplayText,
-  getLinkHrefPrefix,
-} from '@src/components/features/ctf-components/ctf-navigation/utils';
+// import {
+//   getLinkDisplayText,
+//   getLinkHrefPrefix,
+// } from '@src/components/features/ctf-components/ctf-navigation/utils';
 import { LanguageSelector } from '@src/components/features/language-selector';
 import { Link } from '@src/components/shared/link';
 import Logo from '@src/icons/logo-tagline.svg';
@@ -226,13 +226,13 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
 
   const renderMenuGroupLinks = (menuGroup, listClassName) => {
     return menuGroup?.items?.map((menuItem, i) => {
-      const href = getLinkHrefPrefix(menuItem);
-      const linkText = getLinkDisplayText(menuItem);
+      // const href = getLinkHrefPrefix(menuItem);
+      // const linkText = getLinkDisplayText(menuItem);
       return (
         <li key={i} className={listClassName}>
-          <Link href={href} className={classes.menuItem}>
+          {/* <Link href={href} className={classes.menuItem}>
             {linkText}
-          </Link>
+          </Link> */}
         </li>
       );
     });
@@ -244,27 +244,6 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
     <>
       <Container maxWidth={false} className={classes.footerContainer}>
         <footer className={classes.footer}>
-          {footerContent?.menuItemsCollection?.items?.length && (
-            <nav role="navigation" className={classes.menuWrapper}>
-              {footerContent.menuItemsCollection.items.map((menuItem, i) => (
-                <div key={i} className={classes.menuColumn}>
-                  <ul className={classes.menu}>
-                    <li>
-                      <p className={classes.menuItem}>{menuItem?.groupName}</p>
-                      {menuItem?.featuredPagesCollection && (
-                        <ul className={classes.submenu}>
-                          {renderMenuGroupLinks(
-                            menuItem.featuredPagesCollection,
-                            classes.submenuItem,
-                          )}
-                        </ul>
-                      )}
-                    </li>
-                  </ul>
-                </div>
-              ))}
-            </nav>
-          )}
           <section className={classes.footerEndSection}>
             <LanguageSelector />
           </section>
@@ -281,16 +260,6 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
               <p className={classes.copyright}>
                 {t('legal.copyright', { year: new Date().getFullYear() })}
               </p>
-              {footerContent?.legalLinks?.featuredPagesCollection?.items?.length && (
-                <nav role="navigation" className={classes.legalMenuWrapper}>
-                  <ul className={classes.legalMenu}>
-                    {renderMenuGroupLinks(
-                      footerContent.legalLinks.featuredPagesCollection,
-                      classes.legalMenuItem,
-                    )}
-                  </ul>
-                </nav>
-              )}
             </section>
           </div>
 

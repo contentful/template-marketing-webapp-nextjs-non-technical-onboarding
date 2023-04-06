@@ -1,9 +1,6 @@
 import Menu from '@mui/icons-material/Menu';
 import { AppBar, Container, IconButton, Theme, Toolbar, Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { useTranslation } from 'next-i18next';
-
-import { CtfNavigationGql } from '@src/components/features/ctf-components/ctf-navigation/ctf-navigation-gql';
 import { Link } from '@src/components/shared/link';
 import Logo from '@src/icons/colorful-coin-logo.svg';
 import { HEADER_HEIGHT, HEADER_HEIGHT_MD, CONTAINER_WIDTH } from '@src/theme';
@@ -70,8 +67,6 @@ interface HeaderPropsInterface {
 }
 
 export const Header = (props: HeaderPropsInterface) => {
-  const { t } = useTranslation();
-
   const { onMenuClick, isMenuOpen } = props;
   const classes = useStyles();
 
@@ -85,20 +80,18 @@ export const Header = (props: HeaderPropsInterface) => {
           style={{
             maxWidth: `${CONTAINER_WIDTH / 10}rem`,
           }}>
-          <Link href="/" withoutMaterial title={t('common.homepage')}>
+          <Link href="/" withoutMaterial title={'common.homepage'}>
             <Logo className={classes.corporateLogo} />
           </Link>
           <Box display={{ xs: 'none', md: 'block' }}>
-            <div className={classes.menuWrapper}>
-              <CtfNavigationGql />
-            </div>
+            <div className={classes.menuWrapper}></div>
           </Box>
         </Container>
 
         {/* menu button */}
         <Box display={{ md: 'none' }}>
           <IconButton
-            title={t('navigation.mobileMenuButton')}
+            title={'navigation.mobileMenuButton'}
             onClick={() => onMenuClick?.()}
             aria-controls="mobile-menu"
             aria-expanded={isMenuOpen}

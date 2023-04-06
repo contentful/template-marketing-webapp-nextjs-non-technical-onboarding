@@ -71,25 +71,6 @@ export const CtfMobileMenu = (props: MobileMenuPropsInterface) => {
       onClose={onCloseClick}
       role="dialog"
       id="mobile-menu"
-      aria-modal={true}>
-      {mobileMenuContent?.menuItemsCollection?.items.length && (
-        <nav role="navigation">
-          <ul className={classes.menu}>
-            {mobileMenuContent.menuItemsCollection.items.map((menuItem, i) => (
-              <li key={i} className={classes.menuItem}>
-                {!menuItem?.link ? (
-                  menuItem?.label
-                ) : (
-                  <Link href={`/${menuItem?.link?.slug}`}>{menuItem?.label}</Link>
-                )}
-                {!menuItem?.link && menuItem?.children && (
-                  <ul className={classes.submenu}>{renderMobileMenuLinks(menuItem.children)}</ul>
-                )}
-              </li>
-            ))}
-          </ul>
-        </nav>
-      )}
-    </Drawer>
+      aria-modal={true}></Drawer>
   );
 };

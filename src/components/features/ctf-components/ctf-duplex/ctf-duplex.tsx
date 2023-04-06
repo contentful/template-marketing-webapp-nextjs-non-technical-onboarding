@@ -7,7 +7,6 @@ import { DuplexFieldsFragment } from './__generated/ctf-duplex.generated';
 
 import { CtfImage } from '@src/components/features/ctf-components/ctf-image/ctf-image';
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
-import { PageLink } from '@src/components/features/page-link';
 import LayoutContext, { defaultLayout } from '@src/layout-context';
 import { getColorConfigFromPalette } from '@src/theme';
 import { optimizeLineBreak } from '@src/utils';
@@ -92,7 +91,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 const DuplexContent = (props: DuplexFieldsFragment) => {
-  const { headline, bodyText, targetPage, ctaText, colorPalette } = props;
+  const { headline, bodyText, colorPalette } = props;
 
   const colorConfig = getColorConfigFromPalette(colorPalette || '');
   const classes = useStyles();
@@ -114,13 +113,6 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
             <CtfRichtext {...bodyText} className={classes.richText} />
           </div>
         </LayoutContext.Provider>
-      )}
-      {targetPage && targetPage.slug && (
-        <div className={classes.ctaContainer}>
-          <PageLink page={targetPage} variant="contained" color={colorConfig.buttonColor} isButton>
-            {ctaText}
-          </PageLink>
-        </div>
       )}
     </div>
   );
