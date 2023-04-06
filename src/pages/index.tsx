@@ -25,12 +25,8 @@ export const getServerSideProps = async ({ locale }: NextPageContext) => {
     const page = pageData.pageCollection?.items[0];
 
     const topSection = page?.topSectionCollection?.items;
-    const content = page?.pageContent;
 
-    await Promise.all([
-      ...prefetchPromiseArr({ inputArr: topSection, locale, queryClient }),
-      ...prefetchPromiseArr({ inputArr: [content], locale, queryClient }),
-    ]);
+    await Promise.all([...prefetchPromiseArr({ inputArr: topSection, locale, queryClient })]);
 
     return {
       props: {

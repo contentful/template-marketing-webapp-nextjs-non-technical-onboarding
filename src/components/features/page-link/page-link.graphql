@@ -1,7 +1,0 @@
-fragment PageLinkFields on Page {
-  __typename
-  sys {
-    id
-  }
-  pageName
-}

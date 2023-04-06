@@ -1,9 +1,7 @@
 import * as Types from '../../../../../lib/__generated/graphql.types';
 
-import { PageLinkFieldsFragment } from '../../../page-link/__generated/page-link.generated';
 import { AssetFieldsFragment } from '../../ctf-asset/__generated/ctf-asset.generated';
 import { fetchConfig } from '@src/lib/fetchConfig';
-import { PageLinkFieldsFragmentDoc } from '../../../page-link/__generated/page-link.generated';
 import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.generated';
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 
@@ -58,9 +56,6 @@ export const HeroBannerFieldsFragmentDoc = `
     json
   }
   ctaText
-  targetPage {
-    ...PageLinkFields
-  }
   image {
     ...AssetFields
   }
@@ -76,7 +71,7 @@ export const CtfHeroBannerDocument = `
   }
 }
     ${HeroBannerFieldsFragmentDoc}
-${PageLinkFieldsFragmentDoc}
+
 ${AssetFieldsFragmentDoc}`;
 export const useCtfHeroBannerQuery = <
       TData = CtfHeroBannerQuery,

@@ -10,7 +10,7 @@ import { CtfAsset } from '../ctf-asset/ctf-asset';
 
 import { AssetFieldsFragment } from '@src/components/features/ctf-components/ctf-asset/__generated/ctf-asset.generated';
 import { useCtfRichTextHyperlinkQuery } from '@src/components/features/ctf-components/ctf-richtext/__generated/ctf-richtext.generated';
-import { PageLink } from '@src/components/features/page-link';
+
 import { ComponentResolver } from '@src/components/shared/component-resolver';
 import { useContentfulContext } from '@src/contentful-context';
 import { useLayoutContext } from '@src/layout-context';
@@ -194,14 +194,6 @@ const EntryHyperlink = ({ node }) => {
   });
 
   if (!data || isLoading) return null;
-
-  if (data.page) {
-    return (
-      <PageLink page={data.page} variant="contained" underline>
-        {(node.content[0] as any).value}
-      </PageLink>
-    );
-  }
 
   return null;
 };

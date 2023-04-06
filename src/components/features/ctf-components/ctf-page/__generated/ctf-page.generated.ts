@@ -47,10 +47,7 @@ export type CtfPageFieldsFragment = { __typename?: 'Page', pageName?: string | n
     ) | (
       { __typename?: 'ComponentTextBlock' }
       & ComponentReferenceFields_ComponentTextBlock_Fragment
-    ) | null> } | null, pageContent?: (
-    { __typename?: 'ComponentProductTable' }
-    & ComponentReferenceFields_ComponentProductTable_Fragment
-  ) | (
+    ) | null> } | (
     { __typename?: 'TopicBusinessInfo' }
     & ComponentReferenceFields_TopicBusinessInfo_Fragment
   ) | (
@@ -106,9 +103,6 @@ export const CtfPageFieldsFragmentDoc = `
     items {
       ...ComponentReferenceFields
     }
-  }
-  pageContent {
-    ...ComponentReferenceFields
   }
   extraSectionCollection(limit: 20) {
     items {

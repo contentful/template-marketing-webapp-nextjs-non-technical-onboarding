@@ -45,7 +45,7 @@ export const getServerSideProps = async ({ locale, params }: CustomNextPageConte
     const page = pageData.pageCollection?.items[0];
 
     const topSection = page?.topSectionCollection?.items;
-    const content: ComponentReferenceFieldsFragment | undefined | null = page?.pageContent;
+    const content: ComponentReferenceFieldsFragment | undefined | null;
 
     await Promise.all([
       ...prefetchPromiseArr({ inputArr: topSection, locale, queryClient }),
